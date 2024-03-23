@@ -138,31 +138,31 @@ function addDepartment() {
 }
 
 function addRole() {
-  inquirer.prompt([
-    {
-      name: 'title',
-      type: 'input',
-      message: 'Enter the title of the role:'
-    },
-    {
-      name: 'salary',
-      type: 'input',
-      message: 'Enter the salary for this role:'
-    },
-    {
-      name: 'department_id',
-      type: 'input',
-      message: 'Enter the department ID for this role:'
-    }
-  ]).then(answer => {
-    const query = 'INSERT INTO roles SET ?';
-    connection.query(query, { title: answer.title, salary: answer.salary, department_id: answer.department_id }, (err, res) => {
-      if (err) throw err;
-      console.log('Role added successfully!');
-      start();
+    inquirer.prompt([
+      {
+        name: 'title',
+        type: 'input',
+        message: 'Enter the title of the role:'
+      },
+      {
+        name: 'salary',
+        type: 'input',
+        message: 'Enter the salary for this role:'
+      },
+      {
+        name: 'department_id',
+        type: 'input',
+        message: 'Enter the department ID for this role:'
+      }
+    ]).then(answer => {
+      const query = 'INSERT INTO roles SET ?';
+      connection.query(query, { title: answer.title, salary: answer.salary, department_id: answer.department_id }, (err, res) => {
+        if (err) throw err;
+        console.log('Role added successfully!');
+        start();
+      });
     });
-  });
-}
+  }
 
 function addEmployee() {
   inquirer.prompt([
